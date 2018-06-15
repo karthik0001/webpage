@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+
+<!--
+        Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+        <head>
+                <title>Ansible Infrastructure Automation </title>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+                <link rel="stylesheet" href="assets/css/main.css" />
+                <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+                <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+        </head>
+
+<body>
+<!-- [if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+<p></p>
+<!-- [if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+<p></p>
+<!-- [if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]--><!-- Header -->
+<section id="header">
+<div class="inner">
+<h1>Infrastructure Automation with Ansible  </h1>
+<p>On going learning and development. We will use Ansible Tower, Jenkins and Rundeck. <br/> </p>
+<ul class="actions">
+<li><a class="button scrolly" href="#two">How to setup</a></li>
+</ul>
+</div>
+</section>
+<!-- One -->
+
+</section>
+<!-- Two -->
+<section id="two" class="main style2">
+<div class="container">
+<div class="row 150%">
+<div class="6u 12u$(medium)">&nbsp;</div>
+<div class="12u 12u$(medium)"><header class="major">
+<h2>Overview. </h2>
+</header>
+<p>Basics setup and configuration</p> 
+<p>Usecases - (a) Automated Defence (b) Automated server hardening </p>
+<p>Spinning up servers locally in VMWare instead of using AWS/GCP/Azure. I like spin up the servers in a Bridged connection so I could access/ssh them from my home network. You should have that feature in VMware or VirtualBox. </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Three -->
+<section id="three" class="main style1 special">
+<div class="container"><header class="major">
+<h2>Instructions</h2>
+</header>
+
+<div align="left"> <header class="inst">
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">echo</span> <span style="background-color: #fff0f0">&quot;Test File. Checking&quot;</span> &gt; /tmp/check.txt
+sudo apt-get install software-properties-common
+sudo apt-add-repository ppa:ansible/ansible 
+sudo apt-get update
+sudo apt-get install ansible
+wget https://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-latest.tar.gz
+tar xvzf ansible-tower-setup-latest.tar.gz 
+<span style="color: #008800; font-weight: bold">cd</span> ansible-tower-setup<span style="color: #6600EE; font-weight: bold">-3</span>.<span style="color: #6600EE; font-weight: bold">2</span>.<span style="color: #6600EE; font-weight: bold">4</span>/
+ls -ltra
+vim inventory 
+sudo apt-get install vim
+vim inventory 
+sudo ./setup.sh 
+vim inventory 
+sudo ./setup.sh 
+pip install ansible-tower-cli
+history | less
+</pre></td></tr></table></div>
+Edit the inventory file on step 10 and assign new passwords in that file. <br>
+<a href="https://gist.github.com/karthik0001/ff8b2e35d8782680d7552ddcb653f888"> Source  </a>
+
+<p>Test your installtion </p>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #c65d09; font-weight: bold">karthik@ubuntu:~$</span> ansible --version
+<span style="color: #888888">ansible 2.5.2</span>
+<span style="color: #888888">  config file = /etc/ansible/ansible.cfg</span>
+<span style="color: #888888">  configured module search path = [u&#39;/home/karthik/.ansible/plugins/modules&#39;, u&#39;/usr/share/ansible/plugins/modules&#39;]</span>
+<span style="color: #888888">  ansible python module location = /usr/lib/python2.7/dist-packages/ansible</span>
+<span style="color: #888888">  executable location = /usr/bin/ansible</span>
+<span style="color: #888888">  python version = 2.7.6 (default, Jun 22 2015, 17:58:13) [GCC 4.8.2]</span>
+</pre></td></tr></table></div>
+
+<p>Default inventory file location - /etc/ansible/hosts <br>
+Default configuraion location - $HOME/.ssh/config </p>
+
+<p>Spin up few servers with a bridge connection. For Ex: I have 2 Ubuntu servers with IPs- 192.168.0.13 and 192.168.0.14 - We can use these hosts ip and set it up in the Ansible inventory where Ansible was installed. Ansible server should be able to login to the 2 hosts </p>
+
+<p>Important: Setup SSH keys <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2"> Explained Here  </a>, Alternatively you could use passphrase or another authentication mechanism. </p>
+
+<p> 
+Easly test if you could access servers in your inventory. 
+Here we specify by "-i" attribute and give the IP. There are multiple ways to do it. 
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #c65d09; font-weight: bold">karthik@ubuntu:~$</span> ansible all -i 192.168.0.13, -m ping
+<span style="color: #888888">192.168.0.13 | SUCCESS =&gt; {</span>
+<span style="color: #888888">    &quot;changed&quot;: false, </span>
+<span style="color: #888888">    &quot;ping&quot;: &quot;pong&quot;</span>
+<span style="color: #888888">}</span>
+<span style="color: #c65d09; font-weight: bold">karthik@ubuntu:~$</span> 
+<span style="color: #c65d09; font-weight: bold">karthik@ubuntu:~$</span> ansible all -i 192.168.0.17, -m ping
+<span style="color: #888888">192.168.0.17 | UNREACHABLE! =&gt; {</span>
+<span style="color: #888888">    &quot;changed&quot;: false, </span>
+<span style="color: #888888">    &quot;msg&quot;: &quot;Failed to connect to the host via ssh: ssh: connect to host 192.168.0.17 port 22: No route to host\r\n&quot;, </span>
+<span style="color: #888888">    &quot;unreachable&quot;: true</span>
+<span style="color: #888888">}</span>
+</pre></td></tr></table></div>
+<br>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #c65d09; font-weight: bold">karthik@ubuntu:~$</span> ansible all -i 192.168.0.13, -m <span style="color: #007020">command</span> --args <span style="background-color: #fff0f0">&#39;uptime -p&#39;</span>
+<span style="color: #888888">192.168.0.13 | SUCCESS | rc=0 &gt;&gt;</span>
+<span style="color: #888888">up 9 hours, 34 minutes</span>
+</pre></td></tr></table></div>
+For the <b> -i (inventory)</b> flag, we give '<b>,</b>' while we mention IP address, else when you give a file name then we don't need '<b>,</b>'
+
+</p>
+
+</header>
+</div>
+
+
+</div>
+</section>
+<!-- Four -->
+<section id="four" class="main style2 special">
+<div class="container"><header class="major">
+<h2>Want more?</h2>
+</header>
+<p>Sign up and session management in progress.</p>
+<ul class="actions uniform">
+<li><a class="button special" href="#">In Progress</a></li>
+<li><a class="button" href="http://www.karthik.ninja">Home</a></li>
+</ul>
+</div>
+</section>
+<!-- Five -->
+<p></p>
+
+<p></p>
+<!-- Footer -->
+<section id="footer">
+<ul class="icons">
+<li><a class="icon alt fa-twitter" href="#"><span class="label">Twitter</span></a></li>
+<li><a class="icon alt fa-facebook" href="#"><span class="label">Facebook</span></a></li>
+<li><a class="icon alt fa-linkedin" href="https://linkedin.com/in/karthiktv1/"><span class="label">LinkedIn</span></a></li>
+<li><a class="icon alt fa-github" href="https://github.com/karthik0001"><span class="label">GitHub</span></a></li>
+<li><a class="icon alt fa-envelope" href="mailto:contact@karthik.ninja"><span class="label">Email</span></a></li>
+</ul>
+<ul class="copyright">
+<li>&copy; </li>
+</ul>
+</section>
+<!-- Scripts -->
+<p></p>
+<!-- [if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+
+
+                <!-- Scripts -->
+                        <script src="assets/js/jquery.min.js"></script>
+                        <script src="assets/js/jquery.scrolly.min.js"></script>
+                        <script src="assets/js/skel.min.js"></script>
+                        <script src="assets/js/util.js"></script>
+                        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+                        <script src="assets/js/main.js"></script>
+
+        </body>
+</html>
+
