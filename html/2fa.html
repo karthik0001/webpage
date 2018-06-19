@@ -43,7 +43,17 @@
 <div class="12u 12u$(medium)"><header class="major">
 <h2>Overview. </h2>
 </header>
-<p><a class="button" href="http://htc.karthik.ninja:8080/openam/XUI/?realm=/2fa#login/">Two-factor Authentication </a></p>
+<p>Live Demo Here  <a class="button" href="http://openam.karthik.ninja:8080/openam/XUI/?realm=/2fa#login/">Two-factor Authentication </a></p>
+<p>We will cover following:  
+<ol>
+<li>Create a new realm called /2fa. Its better to create a new realm so we can configure authorization policies which are specific for this module. 
+It would be easier to trace logs / auditability. Authentication cookie issued here won't effect other modules.  </li>
+<li>Create a set of module that would be required for registration, ldap authentication, Adaptice risk, SecurID etc. as many as we can. We will not use the modules directly. We using Chains </li>
+<li>Create an Authentication Chain, combine required auth modules by setting up pass/failure rules.  </li>
+<li>Change the default organization authentication to the created chain. </li> 
+<li>Setup can be testing by going to the /2fa realm that was created in Step 1 </li>
+</ol>
+</p>
 
 </div>
 </div>
@@ -55,7 +65,16 @@
 <h2>Instructions</h2>
 </header>
 <p> Document the setup.  </p>
+<div align="center" class="12u 24u$(medium)"><span class="image fit"><img src="images2fa/2fa1.png" alt="" /></span>
+<div align="center" class="12u 24u$(medium)"><span class="image fit"><img src="images2fa/2fa2.png" alt="" /></span>
+<div align="center" class="12u 24u$(medium)"><span class="image fit"><img src="images2fa/2fa3.png" alt="" /></span>
+<div align="center" class="12u 24u$(medium)"><span class="image fit"><img src="images2fa/2fa4.png" alt="" /></span>
+<div align="center" class="12u 24u$(medium)"><span class="image fit"><img src="images2fa/2fa5.png" alt="" /></span>
+<div align="center" class="12u 24u$(medium)"><span class="image fit"><img src="images2fa/2fa6.png" alt="" /></span>
+<div align="center" class="12u 24u$(medium)"><span class="image fit"><img src="images2fa/2fa7.png" alt="" /></span>
+<div align="center" class="12u 24u$(medium)"><span class="image fit"><img src="images2fa/2fa8.png" alt="" /></span>
 
+We can combine 2fa with other setups like protecting a webpage or any other application. 
 </div>
 </section>
 <!-- Four -->
