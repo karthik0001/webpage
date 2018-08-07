@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+
+<!--
+        Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+        <head>
+                <title>GIT usage examples</title>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+                <link rel="stylesheet" href="assets/css/main.css" />
+                <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+                <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+        </head>
+
+<body>
+<!-- [if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+<p></p>
+<!-- [if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+<p></p>
+<!-- [if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]--><!-- Header -->
+<section id="header">
+<div class="inner">
+<h1>Overview of GIT commands </h1>
+
+<ul class="actions">
+<li><a class="button scrolly" href="#two">How to setup</a></li>
+</ul>
+</div>
+</section>
+<!-- One -->
+
+</section>
+<!-- Two -->
+<section id="two" class="main style2">
+<div class="container">
+<div class="row 150%">
+<div class="6u 12u$(medium)">&nbsp;</div>
+<div class="12u 12u$(medium)"><header class="major">
+<h2>Overview. </h2>
+</header>
+<p>High level installation and usage. </p>
+
+</div>
+</div>
+</div>
+</section>
+<!-- Three -->
+<section id="three" class="main style1 special">
+<div class="container"><header class="major">
+<h2>Instructions</h2>
+</header>
+
+<div align="left">
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #c65d09; font-weight: bold">karthik@server1:~$</span> sudo apt install git
+<span style="color: #c65d09; font-weight: bold">root@server1:/home/karthik#</span> git config --global user.name <span style="background-color: #fff0f0">&quot;user.1&quot;</span>
+<span style="color: #c65d09; font-weight: bold">root@server1:/home/karthik#</span> git config --global user.email <span style="background-color: #fff0f0">&quot;user.1@karthik.ninja&quot;</span>
+
+<span style="color: #c65d09; font-weight: bold">root@server1:/home/karthik#</span> git config --list
+<span style="color: #888888">user.name=user.1</span>
+<span style="color: #888888">user.email=user.1@karthik.ninja</span>
+
+
+<span style="color: #c65d09; font-weight: bold">root@server1:/home/karthik#</span> mkdir samplerepo
+<span style="color: #c65d09; font-weight: bold">root@server1:/home/karthik#</span> <span style="color: #007020">cd </span>samplerepo/
+
+<span style="color: #c65d09; font-weight: bold">root@server1:/home/karthik/samplerepo#</span> git init
+<span style="color: #888888">Initialized empty Git repository in /home/karthik/samplerepo/.git/</span>
+<span style="color: #c65d09; font-weight: bold">root@server1:/home/karthik/samplerepo#</span> ls -ltra
+<span style="color: #888888">total 12</span>
+<span style="color: #888888">drwxr-xr-x 5 karthik karthik 4096 Jul 18 21:58 ..</span>
+<span style="color: #888888">drwxr-xr-x 3 root    root    4096 Jul 18 21:58 .</span>
+<span style="color: #888888">drwxr-xr-x 7 root    root    4096 Jul 18 21:58 .git</span>
+
+
+<span style="color: #c65d09; font-weight: bold">root@server1:/home/karthik/samplerepo#</span> cat &gt; index.html
+<span style="color: #888888">Adding random file into the repo</span>
+
+<span style="color: #c65d09; font-weight: bold">root@server1:/home/karthik/samplerepo#</span> ls
+<span style="color: #888888">index.html</span>
+<span style="color: #c65d09; font-weight: bold">root@server1:/home/karthik/samplerepo#</span> touch file1 file2
+<span style="color: #c65d09; font-weight: bold">root@server1:/home/karthik/samplerepo#</span>
+<span style="color: #c65d09; font-weight: bold">root@server1:/home/karthik/samplerepo#</span> <span style="color: #007020">echo</span> <span style="background-color: #fff0f0">&quot;git add .&quot;</span>+<span style="background-color: #fff0f0">&quot;git add *&quot;</span>+<span style="background-color: #fff0f0">&quot;git add file1&quot;</span>
+<span style="color: #888888">git add .+git add *+git add file1</span>
+<span style="color: #c65d09; font-weight: bold">root@server1:/home/karthik/samplerepo#</span> git add *
+<span style="color: #c65d09; font-weight: bold">root@server1:/home/karthik/samplerepo#</span> git status
+<span style="color: #888888">On branch master</span>
+
+<span style="color: #888888">No commits yet</span>
+
+<span style="color: #888888">Changes to be committed:</span>
+<span style="color: #888888">  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)</span>
+
+<span style="color: #888888">        new file:   file1</span>
+<span style="color: #888888">        new file:   file2</span>
+<span style="color: #888888">        new file:   index.html</span>
+
+<span style="color: #c65d09; font-weight: bold">root@server1:/home/karthik/samplerepo#</span> git commit -m <span style="background-color: #fff0f0">&quot;Initial Commit&quot;</span>
+<span style="color: #888888">[master (root-commit) d812caf] Initial Commit</span>
+<span style="color: #888888"> 3 files changed, 1 insertion(+)</span>
+<span style="color: #888888"> create mode 100644 file1</span>
+<span style="color: #888888"> create mode 100644 file2</span>
+<span style="color: #888888"> create mode 100644 index.html</span>
+<span style="color: #c65d09; font-weight: bold">root@server1:/home/karthik/samplerepo#</span>
+
+<span style="color: #888888">Remote Server Commands</span>
+<span style="color: #888888">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span style="color: #888888">git remote add origin git@github.com:karthik0001/BlAbLa.git</span>
+
+<span style="color: #888888">git push -u origin master</span>
+<span style="color: #888888">git commit</span>
+<span style="color: #888888">git checkout</span>
+<span style="color: #888888">git status</span>
+
+<span style="color: #888888">push pull update commit status</span>
+<span style="color: #888888">[Branching and Merging]</span>
+</pre></td></tr></table></div>
+
+
+</div> <!--END OF DIV ALIGN for table view -->
+
+</div>
+</section>
+<!-- Four -->
+<section id="four" class="main style2 special">
+<div class="container"><header class="major">
+<h2>Want more?</h2>
+</header>
+<p>Sign up and session management in progress.</p>
+<ul class="actions uniform">
+<li><a class="button special" href="#">In Progress</a></li>
+<li><a class="button" href="http://www.karthik.ninja">Home</a></li>
+</ul>
+</div>
+</section>
+<!-- Five -->
+<p></p>
+
+<p></p>
+<!-- Footer -->
+<section id="footer">
+<ul class="icons">
+<li><a class="icon alt fa-twitter" href="#"><span class="label">Twitter</span></a></li>
+<li><a class="icon alt fa-facebook" href="#"><span class="label">Facebook</span></a></li>
+<li><a class="icon alt fa-linkedin" href="https://linkedin.com/in/karthiktv1/"><span class="label">LinkedIn</span></a></li>
+<li><a class="icon alt fa-github" href="https://github.com/karthik0001"><span class="label">GitHub</span></a></li>
+<li><a class="icon alt fa-envelope" href="mailto:contact@karthik.ninja"><span class="label">Email</span></a></li>
+</ul>
+<ul class="copyright">
+<li>&copy; </li>
+</ul>
+</section>
+<!-- Scripts -->
+<p></p>
+<!-- [if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+
+
+                <!-- Scripts -->
+                        <script src="assets/js/jquery.min.js"></script>
+                        <script src="assets/js/jquery.scrolly.min.js"></script>
+                        <script src="assets/js/skel.min.js"></script>
+                        <script src="assets/js/util.js"></script>
+                        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+                        <script src="assets/js/main.js"></script>
+
+        </body>
+</html>
+
